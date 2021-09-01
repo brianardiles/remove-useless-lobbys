@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove useless lobbys
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Brian Ardiles
 // @match        https://gamersclub.com.br/lobby
