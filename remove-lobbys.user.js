@@ -1,14 +1,20 @@
 // ==UserScript==
 // @name         Remove useless lobbys
 // @namespace    http://tampermonkey.net/
-// @version      0.2
-// @description  try to take over the world!
+// @version      0.3
+// @description
 // @author       Brian Ardiles
 // @match        https://gamersclub.com.br/lobby
 // @icon         https://www.google.com/s2/favicons?domain=gamersclub.com.br
 // @grant        none
 // ==/UserScript==
-window.addEventListener('DOMContentLoaded', init, false)
+window.onload = function() {
+    // wait gc ws connection
+    setTimeout(() => {
+        init();
+    }, 5000);
+
+};
 
 function init() {
     'use strict';
