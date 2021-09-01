@@ -8,7 +8,7 @@
 // @icon         https://www.google.com/s2/favicons?domain=gamersclub.com.br
 // @grant        none
 // ==/UserScript==
-window.addEventListener('load', init, false)
+window.addEventListener('DOMContentLoaded', init, false)
 
 function init() {
     'use strict';
