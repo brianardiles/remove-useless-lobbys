@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove useless lobbys
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description
 // @author       Brian Ardiles
 // @match        https://gamersclub.com.br/lobby
@@ -9,7 +9,6 @@
 // @grant        none
 // ==/UserScript==
 window.onload = function() {
-    // wait gc ws connection
     setTimeout(() => {
         init();
     }, 5000);
@@ -17,15 +16,15 @@ window.onload = function() {
 };
 
 function init() {
-    'use strict';
     let target = document.querySelector('.list-avaliable-teams');
     let observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            let lobbys = document.getElementsByClassName('lobby-room-list-item')
+            let lobbys = document.getElementsByClassName('sala-card-advertisement')
             for (let lobby of lobbys) {
-                let lobbySelected = lobby.querySelector('span:nth-child(2)')
-                if (!checkAllowedCountry(lobbySelected)) {
-                    lobby.style.display = "none"
+                const parent = lobby.parentElement.parentElement
+                let lobbySelected = parent.querySelector('span:nth-child(2)')
+                if (lobbySelected && !checkAllowedCountry(lobbySelected)) {
+                    parent.style.display = "none"
                 }
             }
         });
