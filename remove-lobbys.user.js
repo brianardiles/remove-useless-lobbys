@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Remove useless lobbys
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description
 // @author       Brian Ardiles
 // @match        https://gamersclub.com.br/lobby
@@ -19,7 +19,7 @@ function init() {
     let target = document.querySelector('.list-avaliable-teams');
     let observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            let lobbys = document.getElementsByClassName('sala-card-advertisement')
+            let lobbys = document.getElementsByClassName('sala-card')
             for (let lobby of lobbys) {
                 const parent = lobby.parentElement.parentElement
                 let lobbySelected = parent.querySelector('span:nth-child(2)')
